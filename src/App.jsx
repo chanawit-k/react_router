@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: 'cocktail',
+        index: true,
         element: <Cocktail />,
       },
       {
