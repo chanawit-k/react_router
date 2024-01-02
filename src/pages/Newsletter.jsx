@@ -1,8 +1,20 @@
 import React from 'react'
+import { Form } from 'react-router-dom'
+
+export const action = async ({ request }) => {
+  try {
+    const formData = await request.formData()
+    const data = Object.fromEntries(formData)
+    console.log(data)
+    return 'something'
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 const Newsletter = () => {
   return (
-    <form className="form">
+    <Form className="form" method="POST">
       <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
         our newsletter
       </h4>
@@ -52,7 +64,7 @@ const Newsletter = () => {
       >
         submit
       </button>
-    </form>
+    </Form>
   )
 }
 
