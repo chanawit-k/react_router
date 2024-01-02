@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: 'cocktail',
+        path: 'cocktail/:id',
         element: <Cocktail />,
       },
       {

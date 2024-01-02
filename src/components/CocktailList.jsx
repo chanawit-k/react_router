@@ -22,7 +22,7 @@ const CocktailList = ({ drinks }) => {
     <Wrapper>
       {formattedDrinks.map((item) => {
         console.log(item)
-        return <CocktailCard {...item} />
+        return <CocktailCard key={item.id} {...item} />
       })}
     </Wrapper>
   )
