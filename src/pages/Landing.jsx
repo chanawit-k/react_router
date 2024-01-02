@@ -14,7 +14,7 @@ const Landing = () => {
   const { searchTerm, drinks } = useLoaderData()
   return (
     <>
-      <SearchForm />
+      <SearchForm searchTerm={searchTerm} />
       <CocktailList drinks={drinks} />
     </>
   )
