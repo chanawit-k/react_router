@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter'
 
 export const action = async ({ request }) => {
@@ -8,9 +9,10 @@ export const action = async ({ request }) => {
   const data = Object.fromEntries(formData)
   try {
     const response = await axios.post(newsletterUrl, data)
-    console.log(response)
+    toast.success(response.data.msg)
     return response
   } catch (error) {
+    toast.error(error?.response?.data?.msg)
     console.log(error)
   }
 }
