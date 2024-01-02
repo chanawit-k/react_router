@@ -1,12 +1,15 @@
 import React from 'react'
 import { Form } from 'react-router-dom'
+import axios from 'axios'
+const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter'
 
 export const action = async ({ request }) => {
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
   try {
-    const formData = await request.formData()
-    const data = Object.fromEntries(formData)
-    console.log(data)
-    return 'something'
+    const response = await axios.post(newsletterUrl, data)
+    console.log(response)
+    return response
   } catch (error) {
     console.log(error)
   }
